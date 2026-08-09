@@ -1,0 +1,8 @@
+# RedProbe — Dependencies
+# ─────────────────────────────────────────────────────────────────
+# The only external dependency is the OpenAI SDK, and it is only
+# required if you use the OpenAI-compatible connector.  The mock
+# connector and all core logic run on Python's standard library.
+# ─────────────────────────────────────────────────────────────────
+
+openai>=1.0.0
