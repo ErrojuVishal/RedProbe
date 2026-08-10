@@ -16,7 +16,7 @@ from __future__ import annotations
 import os
 import sys
 
-from redprobe.base import BaseConnector
+from RedProbe.base import BaseConnector
 
 
 class OpenAICompatibleConnector(BaseConnector):

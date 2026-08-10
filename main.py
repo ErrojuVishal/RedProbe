@@ -25,10 +25,10 @@ from __future__ import annotations
 import argparse
 import sys
 
-from redprobe.connectors import MockConnector, OpenAICompatibleConnector
-from redprobe.probes import PromptInjectionProbe, PromptLeakageProbe
-from redprobe.runner import RedProbeRunner
-from redprobe.report import print_terminal_report, write_json_report
+from RedProbe.connectors import MockConnector, OpenAICompatibleConnector
+from RedProbe.probes import PromptInjectionProbe, PromptLeakageProbe
+from RedProbe.runner import RedProbeRunner
+from RedProbe.report import print_terminal_report, write_json_report
 
 
 # ── Probe registry ────────────────────────────────────────────────
@@ -79,7 +79,7 @@ def _build_probes(args: argparse.Namespace) -> list:
 def main() -> None:
     """Parse CLI arguments and execute the RedProbe scan pipeline."""
     parser = argparse.ArgumentParser(
-        prog="redprobe",
+        prog="RedProbe",
         description=(
             "RedProbe — A modular LLM security red-teaming framework.\n"
             "Assess LLM vulnerabilities through adversarial probing, "

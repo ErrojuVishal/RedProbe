@@ -11,7 +11,7 @@
 #   4. Metadata dump via structured output request
 # ──────────────────────────────────────────────────────────────────────
 
-from redprobe.base import BaseProbe
+from RedProbe.base import BaseProbe
 
 
 class PromptLeakageProbe(BaseProbe):

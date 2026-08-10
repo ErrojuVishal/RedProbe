@@ -10,7 +10,7 @@
 
 import re
 
-from redprobe.base import BaseConnector
+from RedProbe.base import BaseConnector
 
 
 class MockConnector(BaseConnector):

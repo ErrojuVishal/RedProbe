@@ -11,7 +11,7 @@
 
 import re
 
-from redprobe.base import BaseDetector
+from RedProbe.base import BaseDetector
 
 
 class RefusalDetector(BaseDetector):

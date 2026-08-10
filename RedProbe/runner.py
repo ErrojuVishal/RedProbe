@@ -19,8 +19,8 @@ from __future__ import annotations
 
 import time
 
-from redprobe.base import BaseConnector, BaseProbe, BaseDetector
-from redprobe.detectors import RefusalDetector, KeywordAndRegexDetector
+from RedProbe.base import BaseConnector, BaseProbe, BaseDetector
+from RedProbe.detectors import RefusalDetector, KeywordAndRegexDetector
 
 
 class RedProbeRunner:

@@ -174,7 +174,7 @@ def write_json_report(scan_results: dict, output_dir: str) -> str:
     os.makedirs(output_dir, exist_ok=True)
 
     timestamp = time.strftime("%Y%m%d_%H%M%S")
-    filename = f"redprobe_report_{timestamp}.json"
+    filename = f"RedProbe_report_{timestamp}.json"
     filepath = os.path.join(output_dir, filename)
 
     with open(filepath, "w", encoding="utf-8") as f:

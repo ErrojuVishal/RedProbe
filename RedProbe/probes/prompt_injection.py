@@ -11,7 +11,7 @@
 #   4. Instruction repetition / authority escalation
 # ──────────────────────────────────────────────────────────────────────
 
-from redprobe.base import BaseProbe
+from RedProbe.base import BaseProbe
 
 
 class PromptInjectionProbe(BaseProbe):
