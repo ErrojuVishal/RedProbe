@@ -4,11 +4,11 @@
 # ──────────────────────────────────────────────────────────────────────
 # Usage examples:
 #
-#   # Run all probes against the offline mock connector:
-#   python main.py --connector mock --probes all
+#   # Run all probes against the local offline connector:
+#   python main.py --connector local --probes all
 #
 #   # Run only prompt-injection probes with verbose output:
-#   python main.py -c mock -p prompt_injection -v
+#   python main.py -c local -p prompt_injection -v
 #
 #   # Run against a real OpenAI-compatible endpoint:
 #   export OPENAI_API_KEY="sk-..."
@@ -25,7 +25,7 @@ from __future__ import annotations
 import argparse
 import sys
 
-from RedProbe.connectors import MockConnector, OpenAICompatibleConnector
+from RedProbe.connectors import LocalConnector, OpenAICompatibleConnector
 from RedProbe.probes import PromptInjectionProbe, PromptLeakageProbe
 from RedProbe.runner import RedProbeRunner
 from RedProbe.report import print_terminal_report, write_json_report
@@ -41,8 +41,8 @@ PROBE_REGISTRY: dict[str, type] = {
 
 def _build_connector(args: argparse.Namespace):
     """Instantiate the appropriate connector based on CLI arguments."""
-    if args.connector == "mock":
-        return MockConnector()
+    if args.connector == "local":
+        return LocalConnector()
     elif args.connector == "openai":
         return OpenAICompatibleConnector(model=args.model)
     else:
@@ -88,18 +88,18 @@ def main() -> None:
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
             "Examples:\n"
-            "  python main.py --connector mock --probes all\n"
+            "  python main.py --connector local --probes all\n"
             "  python main.py -c openai -m gpt-4 -p prompt_injection -v\n"
-            "  python main.py -c mock -o reports/ -v\n"
+            "  python main.py -c local -o reports/ -v\n"
         ),
     )
 
     parser.add_argument(
         "-c", "--connector",
-        choices=["mock", "openai"],
-        default="mock",
-        help="Target connector: 'mock' (offline) or 'openai' (real API). "
-             "Default: mock.",
+        choices=["local", "openai"],
+        default="local",
+        help="Target connector: 'local' (offline) or 'openai' (real API). "
+             "Default: local.",
     )
     parser.add_argument(
         "-p", "--probes",
